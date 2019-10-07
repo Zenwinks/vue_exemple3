@@ -118,7 +118,7 @@
     <!-- Loop through the services array, assign a click handler, and set or
             remove the "active" css class if needed -->
 
-    <li v-for="service in services" @change="toggleActive(service)" :class="{ 'active': service.active}">
+    <li v-for="service in services" @change="toggleActive(service)" :class="{ 'active': service.quantite > 0}">
 
       <!-- Display the name and price for every entry in the array .
                Vue.js has a built in currency filter for formatting the price -->
@@ -184,7 +184,6 @@
     },
     methods: {
       toggleActive: function (s) {
-        s.active = s.quantite > 0;
         if (s.quantite < 0) {
           s.quantite = 0;
         }
